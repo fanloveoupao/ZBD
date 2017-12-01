@@ -1,9 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zbd.app.activity.IndexActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/netword_card"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/titleBar"
+        android:background="@color/yellow_ffe009"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/arrow_gray_right" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@mipmap/chat_icon_warning" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/arrow"
+            android:layout_toRightOf="@+id/icon"
+            android:paddingLeft="7dp"
+            android:singleLine="true"
+            android:text="当前网络不可用，请检查您的网络设置"
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/font_28" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:id="@+id/v_framelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="50dp">
+
+        </FrameLayout>
+
+        <View
+            style="@style/line"
+            android:layout_above="@+id/ll_toolbar"/>
+
+        <LinearLayout
+            android:id="@+id/ll_toolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@color/white_ffffff"
+            android:orientation="horizontal"
+            android:paddingTop="6dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <RadioButton
+                        android:id="@+id/rdobtn_circle"
+                        style="@style/ToolbarIconStyle"
+                        android:drawableTop="@drawable/selector_toolbar_icon_friend"
+                        android:text="首页" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shape_red_point_bg"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <RadioButton
+                        android:id="@+id/rdobtn_peopleHub"
+                        style="@style/ToolbarIconStyle"
+                        android:drawableTop="@drawable/selector_toolbar_icon_publish"
+                        android:text="人脉"
+                        android:textColor="@color/selector_toolbar_text_color" />
+
+                    <ImageView
+                        android:id="@+id/image_peopel_hub_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/rdobtn_peopleHub"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/dp_1"
+                        android:paddingLeft="@dimen/dp_5"
+                        android:paddingRight="@dimen/dp_5"
+                        android:paddingTop="@dimen/dp_1"
+                        android:src="@drawable/shape_red_point_bg"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+
+                    <RadioButton
+                        android:id="@+id/rdobtn_message"
+                        style="@style/ToolbarIconStyle"
+                        android:drawableTop="@drawable/selector_toolbar_msg_home"
+                        android:text="消息" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/rdobtn_message"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/shape_red_point_bg"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/dp_1"
+                        android:paddingLeft="@dimen/dp_5"
+                        android:paddingRight="@dimen/dp_5"
+                        android:paddingTop="@dimen/dp_1"
+                        android:textColor="#ffffff"
+                        android:textSize="10dp"
+                        tools:text="01" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <RadioButton
+                        android:id="@+id/rdobtn_mine"
+                        style="@style/ToolbarIconStyle"
+                        android:drawableTop="@drawable/selector_toolbar_icon_me"
+                        android:text="我的"
+                        android:textColor="@color/selector_toolbar_text_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_me_unread"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shape_red_point_bg"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

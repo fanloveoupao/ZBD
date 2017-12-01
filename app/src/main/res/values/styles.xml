@@ -30,4 +30,28 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line_height</item>
     </style>
+
+    <style name="CustomRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ChatEditRadinButton" parent="CustomRadioButton">
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:paddingTop">3dp</item>
+    </style>
+
+    <style name="ToolbarIconStyle" parent="CustomRadioButton">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textColor">@color/selector_toolbar_text_color</item>
+    </style>
+
 </resources>

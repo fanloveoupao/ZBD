@@ -41,6 +41,7 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
                 launch(ForgetPasswordActivity.class, false);
                 break;
             case R.id.bt_login:
+                launch(IndexActivity.class,true);
                 break;
             case R.id.bt_registration:
                 launch(RegistrationActivity.class, false);

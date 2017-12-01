@@ -1,6 +1,7 @@
 package com.zbd.app.ioc.component;
 
 
+import com.ysnet.zdb.presenter.IndexPresenter;
 import com.ysnet.zdb.presenter.MainPresenter;
 import com.ysnet.zdb.presenter.login.ForgetPasswordPresenter;
 import com.ysnet.zdb.presenter.login.LoginPresenter;
@@ -27,5 +28,7 @@ public interface PresenterComponent {
     void inject(RegistrationPresenter presenter);
 
     void inject(ForgetPasswordPresenter presenter);
+
+    void inject(IndexPresenter presenter);
 
 }

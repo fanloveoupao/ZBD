@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_f5f5f5"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+
+
+    <LinearLayout
+        android:id="@+id/load_more_loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_f3f3f3"
+        android:gravity="center">
+
+
+        <com.tgnet.app.utils.ui.widget.DotProgressBar
+            android:layout_width="80dp"
+            android:layout_height="15dp"
+            android:layout_centerInParent="true" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/load_more_load_fail_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="加载失败点击重试"
+        android:textColor="@color/red_cc2200"
+        android:textSize="@dimen/font_26"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/load_more_load_end_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="没有更多数据啦"
+        android:textColor="@color/gray_aaaaaa"
+        android:textSize="@dimen/font_26"
+        android:visibility="gone" />
+</FrameLayout>

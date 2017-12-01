@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zbd.app.activity.RegistrationActivity">
+
+    <com.tgnet.app.utils.ui.widget.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="@dimen/dp_40"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/icon_login_account" />
+
+        <com.tgnet.app.utils.ui.widget.EnlargeCrossEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:drawablePadding="15dp"
+            android:drawableRight="@mipmap/icon_clear"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号码"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_bbbbbb"
+            android:textSize="@dimen/font_28" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/grayCcccccLineStyle"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/ll_ver"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/icon_code" />
+
+        <com.tgnet.app.utils.ui.widget.EnlargeCrossEditText
+            android:id="@+id/et_verification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawablePadding="15dp"
+            android:drawableRight="@mipmap/icon_clear"
+            android:gravity="center_vertical"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:singleLine="true"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_bbbbbb"
+            android:textSize="@dimen/font_28" />
+
+        <View
+            android:layout_width="@dimen/line_height"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray_cccccc" />
+
+        <Button
+            android:id="@+id/bt_get_verification"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:text="获取验证码"
+            android:textColor="@color/selector_red_aaa_text"
+            android:textSize="@dimen/font_28" />
+    </LinearLayout>
+
+    <View
+        style="@style/grayCcccccLineStyle"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dp_40"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/icon_login_pwd" />
+
+        <com.tgnet.app.utils.ui.widget.EnlargeCrossEditText
+            android:id="@+id/et_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawablePadding="15dp"
+            android:drawableRight="@mipmap/icon_clear"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="请输入密码"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_bbbbbb"
+            android:textSize="@dimen/font_28" />
+    </LinearLayout>
+
+    <View
+        style="@style/grayCcccccLineStyle"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginRight="@dimen/dp_40"
+        android:gravity="center_vertical|right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="注册代表同意  "
+            android:textColor="@color/gray_bbbbbb"
+            android:textSize="@dimen/font_26" />
+
+        <TextView
+            android:id="@+id/tv_login_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="用户协议"
+            android:textColor="@color/blue_0089fd"
+            android:textSize="@dimen/font_26" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_reg"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="40dip"
+        android:layout_marginRight="40dip"
+        android:background="@drawable/shape_red_radius_8_bg"
+        android:gravity="center"
+        android:text="注册"
+        android:textColor="@color/white_ffffff"
+        android:textSize="@dimen/font_32" />
+</LinearLayout>

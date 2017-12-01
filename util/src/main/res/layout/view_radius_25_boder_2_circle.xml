@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tgnet.app.utils.ui.widget.CircleImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    app:round_borderColor="@color/white_ffffff"
+    app:round_borderWidth="2dp" />

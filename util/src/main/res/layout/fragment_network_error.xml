@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_error_network"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white_f5f5f5"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp"
+            android:drawablePadding="11dp"
+            android:drawableTop="@mipmap/load_error"
+            android:gravity="center_horizontal"
+            android:text="数据加载失败"
+            android:textColor="@color/gray_999999"
+            android:textSize="@dimen/font_28" />
+
+        <Button
+            android:id="@+id/btn_reload_data"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            style="@style/WhiteSmall60Button"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="重新加载"
+            android:layout_gravity="center_horizontal"
+            />
+
+      </LinearLayout>
+
+</LinearLayout>

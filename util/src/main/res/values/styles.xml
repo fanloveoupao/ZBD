@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+    </style>
+
+
+    <style name="NoTraslucentTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="NoTitleNoTraslucentTheme" parent="NoTraslucentTheme">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ChatTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NoTitleNoTraslucentTheme.Fullscreen" parent="NoTitleNoTraslucentTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="TranslucentDialogFragment">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustResize</item>
+    </style>
+
+    <style name="InputDialogFragment" parent="TranslucentDialogFragment">
+        <item name="android:windowSoftInputMode">stateAlwaysVisible|adjustResize</item>
+    </style>
+
+    <style name="dialogfragment_layout">
+        <item name="android:layout_marginLeft">35dp</item>
+        <item name="android:layout_marginRight">35dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_fff_radius_12</item>
+    </style>
+
+    <style name="line" parent="android:Widget.TextView">
+        <item name="android:background">#e3e3e3</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="horizontal_line">
+        <item name="android:background">#e3e3e3</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="vertica_line">
+        <item name="android:background">#dadada</item>
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="ActivityStyle" parent="NoTitleNoTraslucentTheme">
+        <item name="android:configChanges">keyboardHidden|orientation</item>
+        <item name="android:launchMode">singleTop</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <style name="Dialog" parent="@android:style/Theme.Dialog">
+        <!-- 去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 透明度82.2%-->
+        <item name="android:backgroundDimAmount">0.822</item>
+        <!-- 去除背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="GradientStatusBar">
+        <item name="android:background">@drawable/shape_title_bg</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+
+    </style>
+
+    <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_int_to_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_anim_no</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_out_to_right</item>
+    </style>
+
+    <style name="DialogFragmentAniimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_push_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_push_out</item>
+    </style>
+
+    <style name="WhiteSmallButton">
+        <item name="android:background">@drawable/selector_white_button_bg</item>
+        <item name="android:textSize">@dimen/font_28</item>
+        <item name="android:textColor">@color/black_333333</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:paddingRight">15dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dip</item>
+    </style>
+
+    <style name="WhiteSmall60Button">
+        <item name="android:background">@drawable/selector_white_60_button_bg</item>
+        <item name="android:textColor">@color/gray_666666</item>
+        <item name="android:textSize">@dimen/font_26</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="ClickToTop">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginRight">@dimen/dp_8</item>
+        <item name="android:layout_marginBottom">@dimen/dp_8</item>
+    </style>
+</resources>

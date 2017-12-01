@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/ll_single_list"
+              android:layout_width="match_parent"
+              android:layout_height="45dp"
+              android:background="@drawable/selector_item_bg"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingLeft="15dp">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/selector_region_type_choice_text"
+        android:textSize="@dimen/font_28"
+        tools:text="全部"/>
+
+
+    <ImageView
+        android:id="@+id/iv_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/icon_region_type_choice_cb_press"/>
+
+</LinearLayout>

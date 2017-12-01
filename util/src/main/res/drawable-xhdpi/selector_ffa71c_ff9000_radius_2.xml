@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shape_ffa71c_radius_2" android:state_pressed="false"/>
+    <item android:drawable="@drawable/shape_ff9000_radius_2" android:state_pressed="true"/>
+
+</selector>

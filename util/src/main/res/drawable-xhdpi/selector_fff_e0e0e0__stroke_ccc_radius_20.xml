@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shape_fff_stroke_ccc_radius_20" android:state_pressed="false"/>
+    <item android:drawable="@drawable/shape_e0e0e0_stroke_ccc_radius_20" android:state_pressed="true"/>
+
+</selector>

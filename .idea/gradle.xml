@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/baselib" />
             <option value="$PROJECT_DIR$/im" />
             <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/share" />
             <option value="$PROJECT_DIR$/util" />
             <option value="$PROJECT_DIR$/zdb" />
           </set>

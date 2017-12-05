@@ -53,7 +53,7 @@
 
 
     <View
-        style="@style/grayCcccccLineStyle"
+        style="@style/horizontal_line"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp" />
 
@@ -93,7 +93,7 @@
     </LinearLayout>
 
     <View
-        style="@style/grayCcccccLineStyle"
+        style="@style/horizontal_line"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp" />
 

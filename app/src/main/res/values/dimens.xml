@@ -86,6 +86,8 @@
     <dimen name="dp_84">84dp</dimen>
     <dimen name="dp_90">90dp</dimen>
     <dimen name="dp_140">140dp</dimen>
+    <dimen name="dp_144">144dp</dimen>
+    <dimen name="dp_160">160dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

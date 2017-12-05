@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_ffffff"
+    android:orientation="vertical"
+    tools:context="com.zbd.app.activity.home.BeVipActivity">
+
+    <com.tgnet.app.utils.ui.widget.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_15"
+        android:text="选择会员种类"
+        android:textColor="@color/black_333333"
+        android:textSize="@dimen/font_32" />
+
+
+    <View
+        style="@style/horizontal_line"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8" />
+
+    <LinearLayout
+        android:id="@+id/ll_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+
+        <RadioButton
+            android:id="@+id/radio_one"
+            style="@style/ToolbarIconStyle"
+            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="猪猪女该"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="388元/年,一年内可无限次更换,每次限1件"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(首饰类)"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        style="@style/horizontal_line"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8" />
+
+    <LinearLayout
+        android:id="@+id/ll_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+
+        <RadioButton
+            android:id="@+id/radio_two"
+            style="@style/ToolbarIconStyle"
+            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="猪猪女郎"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="688元/年,一年内可无限次更换,每次限1件"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(首饰、包包、手表类)"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/horizontal_line"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8" />
+
+    <LinearLayout
+        android:id="@+id/ll_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+
+        <RadioButton
+            android:id="@+id/radio_three"
+            style="@style/ToolbarIconStyle"
+            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="猪猪女王"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="988元/年,一年内可无限次更换,每次限2件"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(全部种类并包含专区类)"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_26" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_pay"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="应支付 : "
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_32" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_f45758"
+                android:textSize="@dimen/font_32"
+                tools:text="¥ 220.00" />
+        </LinearLayout>
+
+        <TextView
+
+            android:id="@+id/tv_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/red_f45758"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_12"
+            android:text="支付"
+            android:textColor="@color/white_ffffff"
+            android:textSize="@dimen/font_30" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GradientStatusBar"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/dp_16"
+    android:paddingRight="@dimen/dp_12">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_name" />
+
+    <LinearLayout
+        android:id="@+id/ll_search_lay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_weight="1"
+        android:background="@drawable/shape_input_radius_12_fff"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_7"
+        android:paddingTop="@dimen/dp_7">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:alpha="0.52"
+            android:text="搜索商品"
+            android:textColor="@color/white_ffffff"
+            android:textSize="@dimen/font_32" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:src="@mipmap/icon_message" />
+</LinearLayout>

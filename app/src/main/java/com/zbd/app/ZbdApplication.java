@@ -12,6 +12,7 @@ import com.tgnet.app.utils.ui.TgnetApplication;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.zbd.app.activity.LoginActivity;
 import com.zbd.app.ioc.module.DaoMasterModule;
+import com.zbd.app.picasso.ImageLoader;
 
 /**
  * @author fan-gk
@@ -27,6 +28,8 @@ public class ZbdApplication extends TgnetApplication {
         initTIMManager();
 
         clearNotification();
+
+        ImageLoader.init(this);
 
     }
 

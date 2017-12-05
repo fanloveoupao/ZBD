@@ -13,22 +13,22 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="grayCcccccLineStyle">
+    <style name="horizontal_line">
         <item name="android:background">@color/gray_cccccc</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:layout_height">1px</item>
     </style>
 
     <style name="grayDadadaLineStyle">
         <item name="android:background">@color/gray_dadada</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:layout_height">1px</item>
     </style>
 
     <style name="grayE3e3e3LineStyle">
         <item name="android:background">@color/gray_e3e3e3</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:layout_height">1px</item>
     </style>
 
     <style name="CustomRadioButton">

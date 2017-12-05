@@ -107,7 +107,7 @@
                         android:id="@+id/rdobtn_peopleHub"
                         style="@style/ToolbarIconStyle"
                         android:drawableTop="@drawable/selector_toolbar_icon_publish"
-                        android:text="人脉"
+                        android:text="分类"
                         android:textColor="@color/selector_toolbar_text_color" />
 
                     <ImageView
@@ -142,7 +142,7 @@
                         android:id="@+id/rdobtn_message"
                         style="@style/ToolbarIconStyle"
                         android:drawableTop="@drawable/selector_toolbar_msg_home"
-                        android:text="消息" />
+                        android:text="购物车" />
 
                     <TextView
                         android:id="@+id/tv_msg_count"

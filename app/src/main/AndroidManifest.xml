@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zbd.app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".ZbdApplication"
         android:allowBackup="true"
@@ -40,6 +44,13 @@
         <activity
             android:name=".activity.ForgetPasswordActivity"
             android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/ActivityStyle" />
+        <activity android:name=".activity.Main2Activity" />
+        <activity
+            android:name=".activity.home.BeVipActivity"
+            android:theme="@style/ActivityStyle" />
+        <activity
+            android:name=".activity.ShareAppActivity"
             android:theme="@style/ActivityStyle" />
     </application>
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_ffffff"
+    android:layout_marginBottom="@dimen/dp_6"
+    android:orientation="vertical">
+
+    <com.zbd.app.widget.AdvertisementBanner
+        android:id="@+id/advertBanner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_144"
+        app:canLoop="true" />
+
+    <include layout="@layout/include_home_menu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:background="@color/gray_f5f5f5"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_12">
+
+        <ImageView
+            android:id="@+id/iv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_8"
+            android:text="热门商品"
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/font_36" />
+
+        <View style="@style/horizontal_line" />
+    </LinearLayout>
+
+</LinearLayout>

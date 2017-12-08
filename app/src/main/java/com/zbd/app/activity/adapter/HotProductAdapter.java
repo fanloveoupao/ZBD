@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tgnet.util.StringUtil;
-import com.ysnet.zdb.resource.HotProductBean;
+import com.ysnet.zdb.resource.bean.HotProductBean;
 import com.zbd.app.R;
 import com.zbd.app.picasso.ImageLoader;
 import com.zbd.app.widget.LoadMoreAdapter;

@@ -5,6 +5,7 @@ import com.ysnet.zdb.presenter.BeVipPresenter;
 import com.ysnet.zdb.presenter.IndexHomePresenter;
 import com.ysnet.zdb.presenter.IndexPresenter;
 import com.ysnet.zdb.presenter.MainPresenter;
+import com.ysnet.zdb.presenter.MyMessagePresenter;
 import com.ysnet.zdb.presenter.ShareAppPresenter;
 import com.ysnet.zdb.presenter.login.ForgetPasswordPresenter;
 import com.ysnet.zdb.presenter.login.LoginPresenter;
@@ -39,5 +40,7 @@ public interface PresenterComponent {
     void inject(BeVipPresenter presenter);
 
     void inject(ShareAppPresenter presenter);
+
+    void inject(MyMessagePresenter presenter);
 
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bigkoo.convenientbanner.holder.Holder;
-import com.ysnet.zdb.resource.AdvertisementsBean;
+import com.ysnet.zdb.resource.bean.AdvertisementsBean;
 import com.zbd.app.R;
 import com.zbd.app.picasso.ImageLoader;
 

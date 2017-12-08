@@ -141,11 +141,7 @@ public class IndependentLoginActivity extends Activity {
             }
         }
 
-        if(requestCode == com.tencent.connect.common.Constants.REQUEST_API) {
-            if (resultCode == com.tencent.connect.common.Constants.RESULT_LOGIN) {
-                tlsService.onActivityResultForQQLogin(requestCode, requestCode, data);
-            }
-        }
+
 
     }
 

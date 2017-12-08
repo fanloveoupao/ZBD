@@ -1,8 +1,44 @@
-apply plugin: 'java-library'
+apply plugin: 'com.android.library'
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+android {
+
+    compileSdkVersion COMPILE_SDK_VERSION as int
+
+    defaultConfig {
+        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion ANDROID_TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir("libs")
+        }
+    }
+
 }
-
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/open_sdk.jar')
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile 'com.android.support:appcompat-v7:' + SUPPORT_VERSION
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.sina.weibo.sdk:core:4.1.0:openDefaultRelease@aar'
+    testCompile 'junit:junit:4.12'
+}

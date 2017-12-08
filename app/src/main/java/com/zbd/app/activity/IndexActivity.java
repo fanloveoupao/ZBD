@@ -1,6 +1,7 @@
 
 package com.zbd.app.activity;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import com.tgnet.app.utils.ui.widget.RadioButtonGroup;
+import com.xiaomi.mipush.sdk.MiPushClient;
 import com.ysnet.zdb.presenter.IndexPresenter;
 import com.zbd.app.BasePresenterActivity;
 import com.zbd.app.R;
@@ -133,6 +135,7 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
     protected void initView(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_index);
         ButterKnife.bind(this);
+        clearNotification();
         if (savedInstanceState != null) {
             indexHomeFragment = (IndexHomeFragment) getSupportFragmentManager().findFragmentByTag(TAG_CIRCLE_FRAGMENT);
             indexSortFragment = (IndexSortFragment) getSupportFragmentManager().findFragmentByTag(TAG_CONTACTS_FRAGMENT);
@@ -148,5 +151,15 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
     @Override
     protected void injectPresenter(PresenterComponent component, IndexPresenter presenter) {
         component.inject(presenter);
+    }
+
+    /**
+     * 清楚所有通知栏通知
+     */
+    private void clearNotification() {
+        NotificationManager notificationManager = (NotificationManager) this
+                .getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancelAll();
+        MiPushClient.clearNotification(getApplicationContext());
     }
 }

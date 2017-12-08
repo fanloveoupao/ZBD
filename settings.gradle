@@ -1,1 +1,1 @@
-include ':app', ':baselib', ':util', ':im', ':lib', ':zdb', ':share'
+include ':app', ':baselib', ':util', ':im',  ':zdb', ':share'

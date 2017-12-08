@@ -2,8 +2,8 @@ package com.ysnet.zdb.presenter;
 
 import com.tgnet.basemvp.IView;
 import com.tgnet.executor.ActionRunnable;
-import com.ysnet.zdb.resource.AdvertisementsBean;
-import com.ysnet.zdb.resource.HotProductBean;
+import com.ysnet.zdb.resource.bean.AdvertisementsBean;
+import com.ysnet.zdb.resource.bean.HotProductBean;
 
 import java.util.ArrayList;
 import java.util.List;

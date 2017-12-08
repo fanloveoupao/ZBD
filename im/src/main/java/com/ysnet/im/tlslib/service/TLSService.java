@@ -31,7 +31,6 @@ public class TLSService {
 
     private SmsLoginService smsLoginService;
     private SmsRegisterService smsRegisterService;
-    private QQLoginService qqLoginService;
     private WXLoginService wxLoginService;
     private AccountLoginService accountLoginService;
     private AccountRegisterService accountRegisterService;
@@ -306,21 +305,17 @@ public class TLSService {
     * 代理QQ登录的接口
     * */
     public void initQQLoginService(Activity activity, Button btn_qqlogin) {
-        qqLoginService = new QQLoginService(activity, btn_qqlogin);
     }
 
     public boolean qqHasLogined() {
-        return qqLoginService.qqHasLogined();
+        return false;
     }
 
     public void onActivityResultForQQLogin(int requestCode, int resultCode, Intent data) {
-        qqLoginService.onActivityResult(requestCode, resultCode, data);
     }
 
     public void qqLogOut() {
-        try {
-            qqLoginService.qqLogout();
-        } catch (Exception e) {}
+
     }
 
     /**

@@ -14,11 +14,13 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.kennyc.view.MultiStateView;
 import com.ysnet.zdb.presenter.IndexHomePresenter;
-import com.ysnet.zdb.resource.AdvertisementsBean;
-import com.ysnet.zdb.resource.HotProductBean;
+import com.ysnet.zdb.resource.bean.AdvertisementsBean;
+import com.ysnet.zdb.resource.bean.HotProductBean;
 import com.zbd.app.R;
+import com.zbd.app.activity.ShareAppActivity;
 import com.zbd.app.activity.adapter.HotProductAdapter;
 import com.zbd.app.activity.home.BeVipActivity;
+import com.zbd.app.activity.home.MyMessageActivity;
 import com.zbd.app.ioc.component.PresenterComponent;
 import com.zbd.app.widget.AdvertisementBanner;
 import com.zbd.app.widget.LocalImageHolderView;
@@ -53,6 +55,9 @@ public class IndexHomeFragment extends IocPresenterFragment<IndexHomePresenter, 
                 case R.id.ll_be_vip_lay:
                     getBaseActivity().launch(BeVipActivity.class, false);
                     break;
+                case R.id.ll_share_lay:
+                    getBaseActivity().launch(ShareAppActivity.class, false);
+                    break;
             }
         }
     };
@@ -81,13 +86,14 @@ public class IndexHomeFragment extends IocPresenterFragment<IndexHomePresenter, 
         mAdapter = new HotProductAdapter(new ArrayList<HotProductBean>());
         mAdapter.setOnLoadMoreListener(this);
         mAdapter.addHeaderView(mHeaderView);
-        mAdapter.openLoadAnimation(getPresenter().getLimit());
+        mAdapter.openLoadMore(getPresenter().getLimit());
         mRecyclerView.setAdapter(mAdapter);
         mBanner = mHeaderView.findViewById(R.id.advertBanner);
     }
 
     private void initListener() {
         mHeaderView.findViewById(R.id.ll_be_vip_lay).setOnClickListener(onClickListener);
+        mHeaderView.findViewById(R.id.ll_share_lay).setOnClickListener(onClickListener);
     }
 
     private void initData() {
@@ -111,6 +117,7 @@ public class IndexHomeFragment extends IocPresenterFragment<IndexHomePresenter, 
             case R.id.ll_search_lay:
                 break;
             case R.id.iv_message:
+                getBaseActivity().launch(MyMessageActivity.class,false);
                 break;
         }
     }

@@ -119,12 +119,6 @@ public class PhonePwdLoginActivity extends Activity {
         } else if (requestCode == SMS_RESET_REQUEST) {
             setResult(RESULT_OK, data);
             finish();
-        } else {
-            if (requestCode == com.tencent.connect.common.Constants.REQUEST_API) {
-                if (resultCode == com.tencent.connect.common.Constants.RESULT_LOGIN) {
-                    tlsService.onActivityResultForQQLogin(requestCode, requestCode, data);
-                }
-            }
         }
     }
 

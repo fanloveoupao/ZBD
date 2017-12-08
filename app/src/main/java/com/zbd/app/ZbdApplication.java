@@ -1,6 +1,10 @@
 package com.zbd.app;
 
+import android.annotation.TargetApi;
 import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.support.multidex.MultiDex;
 
 import com.tencent.TIMGroupReceiveMessageOpt;
 import com.tencent.TIMManager;
@@ -20,6 +24,14 @@ import com.zbd.app.picasso.ImageLoader;
  */
 public class ZbdApplication extends TgnetApplication {
     public final DaoMasterModule daoMasterModule = new DaoMasterModule(this);
+    private static Context context;
+
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
 
     @Override
     public void onCreate() {
@@ -90,4 +102,10 @@ public class ZbdApplication extends TgnetApplication {
         notificationManager.cancelAll();
         MiPushClient.clearNotification(getApplicationContext());
     }
+
+
+    public static Context getContext() {
+        return context;
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.ysnet.zdb.resource;
+package com.ysnet.zdb.resource.bean;
 
 import java.io.Serializable;
 

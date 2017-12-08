@@ -32,6 +32,7 @@ dependencies {
     compile project(':zdb')
     compile project(':im')
     compile project(':util')
+    compile project(':share')
     implementation 'com.android.support:appcompat-v7:' + SUPPORT_VERSION
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
@@ -40,6 +41,7 @@ dependencies {
     compile 'com.google.dagger:dagger:2.11-rc1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11-rc1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.github.Kennyc1012:MultiStateView:1.2.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.3.3'
     compile 'com.bigkoo:convenientbanner:2.0.5'

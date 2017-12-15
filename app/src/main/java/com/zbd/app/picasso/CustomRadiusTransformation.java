@@ -10,32 +10,33 @@ import android.graphics.RectF;
 import com.squareup.picasso.Transformation;
 
 /**
- * Created by weinp on 2017/6/12.
+ * Created by fan-gk on 2017/7/20.
  */
 
-public class CircleCornerTransformation implements Transformation {
-    private final Context mContext;
-    private float mCornerX = 10f;
-    private float mCornerY = 10f;
 
-    public CircleCornerTransformation(Context context) {
+public class CustomRadiusTransformation implements Transformation {
+    private final Context mContext;
+    private float mCornerX = 20f;
+    private float mCornerY = 20f;
+
+    public CustomRadiusTransformation(Context context) {
         mContext = context;
     }
-
 
     @Override
     public Bitmap transform(Bitmap bitmap) {
 
-        int size = Math.min(bitmap.getWidth(), bitmap.getHeight());
+        int WidthSize = bitmap.getWidth();
+        int HeightSize =  bitmap.getHeight();
 
-        Bitmap finalBitmap = Bitmap.createBitmap(size, size, bitmap.getConfig());
+        Bitmap finalBitmap = Bitmap.createBitmap(WidthSize, HeightSize, bitmap.getConfig());
         Canvas canvas = new Canvas(finalBitmap);
         Paint paint = new Paint();
         BitmapShader shader = new BitmapShader(bitmap, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
         paint.setShader(shader);
         paint.setAntiAlias(true);
 
-        RectF rectf = new RectF(0, 0, size, size);
+        RectF rectf = new RectF(0, 0, WidthSize, HeightSize);
         canvas.drawRoundRect(rectf, mCornerX, mCornerY, paint);
         bitmap.recycle();
         return finalBitmap;
@@ -43,20 +44,7 @@ public class CircleCornerTransformation implements Transformation {
 
     @Override
     public String key() {
-        return "com.tgnet.android.ywq.picasso.CircleCornerTransformation";
+        return "com.tgnet.information.picasso.CustomRadiusTransformation";
     }
 
-
-    public void setCornerSize(float cornerX, float cornerY) {
-        mCornerY = cornerY;
-        mCornerX = cornerX;
-    }
-
-    public float getCornerX() {
-        return mCornerX;
-    }
-
-    public float getCornerY() {
-        return mCornerY;
-    }
 }

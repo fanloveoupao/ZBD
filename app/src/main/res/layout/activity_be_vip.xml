@@ -40,7 +40,7 @@
         <RadioButton
             android:id="@+id/radio_one"
             style="@style/ToolbarIconStyle"
-            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+            android:drawableTop="@drawable/selector_check_bg" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
         <RadioButton
             android:id="@+id/radio_two"
             style="@style/ToolbarIconStyle"
-            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+            android:drawableTop="@drawable/selector_check_bg" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -137,7 +137,7 @@
         <RadioButton
             android:id="@+id/radio_three"
             style="@style/ToolbarIconStyle"
-            android:drawableTop="@drawable/selector_toolbar_icon_friend" />
+            android:drawableTop="@drawable/selector_check_bg" />
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.ysnet.zdb.resource.bean.AdvertisementsBean;
-import com.zbd.app.R;
 import com.zbd.app.picasso.ImageLoader;
 
 
@@ -34,8 +33,7 @@ public class LocalImageHolderView implements Holder<AdvertisementsBean> {
 
     @Override
     public void UpdateUI(Context context, int position, AdvertisementsBean data) {
-            ImageLoader.loadImage(Uri.parse(data.imgUrl), placeLoaderId == 0 ? R.mipmap.ic_launcher : placeLoaderId,
-                    errorDrawableId == 0 ? R.mipmap.ic_launcher : errorDrawableId, imageView);
+        ImageLoader.loadImage(Uri.parse(data.imgUrl), imageView);
     }
 }
 

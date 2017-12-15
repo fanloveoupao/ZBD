@@ -27,6 +27,6 @@ public class HotProductAdapter extends LoadMoreAdapter<HotProductBean> {
                 .setText(R.id.tv_price, String.format(mContext.getString(R.string.str_price), hotProductBean.price));
         ImageView imageView = baseViewHolder.getView(R.id.iv_product);
         if (!StringUtil.isNullOrEmpty(hotProductBean.imgUrl))
-            ImageLoader.loadImage(Uri.parse(hotProductBean.imgUrl), imageView);
+            ImageLoader.loadImage(Uri.parse(hotProductBean.imgUrl), imageView,true);
     }
 }

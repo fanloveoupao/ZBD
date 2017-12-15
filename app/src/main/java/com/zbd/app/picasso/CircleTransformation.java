@@ -42,6 +42,6 @@ public class CircleTransformation implements Transformation {
 
     @Override
     public String key(){
-        return "com.tgnet.android.ywq.picasso.CircleTransformation";
+        return "com.zbd.app.picasso.picasso.CircleTransformation";
     }
 }

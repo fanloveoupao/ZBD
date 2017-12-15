@@ -17,13 +17,12 @@ import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
-import com.tgnet.app.utils.executor.ThreadExecutor;
-import com.tgnet.app.utils.utils.TypedValueUtil;
+import com.squareup.picasso.Target;
 import com.tgnet.util.StringUtil;
 import com.zbd.app.R;
 import com.zbd.app.http.OkHttp3Downloader;
 
-import java.io.IOException;
+import java.io.File;
 
 /**
  * @author fan-gk
@@ -32,10 +31,14 @@ import java.io.IOException;
 
 public class ImageLoader {
     public static String NO_USE_DEFAULT_IMG = "no_use_default_img";
+    public final static String IMGSBASEURL = "http://file.tgimg.cn/Image/Show?fid=";
+    public final static String mImg200_200 = "@200w_200h_90Q"; // 缩略图的尺寸
+    public final static String mImg270_270 = "@270w_270h_90Q"; // 缩略图的尺寸
+    public final static String mImg360_360 = "@360w_360h_90Q"; // 缩略图的尺寸
     private static Picasso iconPicasso = null;
     private static Picasso imagePicasso = null;
     private static CircleTransformation circleTransformation = null;
-    private static CircleCornerTransformation circleCornerTransformation = null;
+    private static CustomRadiusTransformation customRadiusTransformation = null;
     private static RoundedBitmapDrawable defaultRoundIcon = null;
     private static OkHttp3Downloader iconDownloader;
 
@@ -50,7 +53,7 @@ public class ImageLoader {
                 .downloader(new OkHttp3Downloader(context, "tgnet-cache-image", 500 * 1024 * 1024)) //500M
                 .build();
         circleTransformation = new CircleTransformation(context);
-        circleCornerTransformation = new CircleCornerTransformation(context);
+        customRadiusTransformation = new CustomRadiusTransformation(context);
         defaultRoundIcon = RoundedBitmapDrawableFactory.create(context.getResources()
                 , BitmapFactory.decodeResource(context.getResources(), R.mipmap.default_portrait));
         defaultRoundIcon.setCircular(true);
@@ -72,6 +75,7 @@ public class ImageLoader {
     }
 
     private static int getResIcon(String sessionType) {
+
         return -1;
     }
 
@@ -94,21 +98,19 @@ public class ImageLoader {
         loadIcon(Uri.parse(url), imageView, useCache, false, true);
     }
 
-    public static void loadCircleCornerIcon(@NonNull String url, @NonNull ImageView imageView, boolean useCache, float cornerX, float
-            cornerY) {
-        if (circleCornerTransformation != null) {
-            circleCornerTransformation.setCornerSize(TypedValueUtil.fromDip(cornerX), TypedValueUtil.fromDip(cornerY));
-            loadIcon(Uri.parse(url), imageView, useCache, false, true);
-        }
-    }
-
-
     public static void loadIcon(@NonNull String url, @NonNull ImageView imageView, boolean useCache, boolean isRound) {
         loadIcon(Uri.parse(url), imageView, useCache, isRound, false);
     }
 
-    public static void loadIcon(@NonNull Uri url, @NonNull final ImageView imageView, boolean useCache
+
+    private static void loadIcon(@NonNull Uri url, @NonNull final ImageView imageView, boolean useCache
             , boolean isRound, boolean isCircleCorner) {
+        loadIcon(url, imageView, useCache, isRound, isCircleCorner, R.mipmap.default_portrait);
+    }
+
+
+    private static void loadIcon(@NonNull Uri url, @NonNull final ImageView imageView, boolean useCache
+            , boolean isRound, boolean isCircleCorner, @DrawableRes int defaultDrawableId) {
         RequestCreator creator = iconPicasso
                 .load(url)
                 .fit();
@@ -117,17 +119,18 @@ public class ImageLoader {
             creator = creator.networkPolicy(NetworkPolicy.NO_CACHE);
             creator = creator.memoryPolicy(MemoryPolicy.NO_CACHE);
         }
+        creator.placeholder(defaultDrawableId)
+                .error(defaultDrawableId);
+
         if (isRound) {
-            creator.placeholder(defaultRoundIcon)
-                    .error(defaultRoundIcon)
+            creator.placeholder(defaultDrawableId)
+                    .error(defaultDrawableId)
                     .transform(circleTransformation);
-        } else if (isCircleCorner) {
-            creator.placeholder(R.mipmap.default_portrait_circle_corner)
-                    .error(R.mipmap.default_portrait_circle_corner)
-                    .transform(circleCornerTransformation);
-        } else {
-            creator.placeholder(R.mipmap.default_portrait)
-                    .error(R.mipmap.default_portrait);
+        }
+        if (isCircleCorner) {
+            creator.placeholder(defaultDrawableId)
+                    .error(defaultDrawableId)
+                    .transform(customRadiusTransformation);
         }
 
         creator.into(imageView);
@@ -135,39 +138,35 @@ public class ImageLoader {
 
 
     public static void loadImage(@NonNull Uri url, @NonNull final ImageView imageView) {
-        loadImage(url, null, imageView, null, null);
-    }
-
-    public static void loadImage(@NonNull Uri url, @DrawableRes int placeHolder, @DrawableRes int error, @NonNull final ImageView
-            imageView) {
-        loadImage(url, null, placeHolder, error, imageView, false, null, null);
+        loadImage(url, null, imageView, false, false, null, null);
     }
 
     public static void loadImage(@NonNull Uri url, @NonNull final ImageView imageView, final Runnable onLoaded) {
-        loadImage(url, null, imageView, onLoaded, null);
+        loadImage(url, null, imageView, false, false, onLoaded, null);
     }
 
     public static void loadImage(@NonNull Uri url, @Nullable String thumbnailUrl, @NonNull final ImageView imageView) {
-        loadImage(url, thumbnailUrl, imageView, null, null);
+        loadImage(url, thumbnailUrl, imageView, false, false, null, null);
     }
 
     public static void loadImage(@NonNull Uri url, @Nullable String thumbnailUrl, @NonNull final ImageView imageView, final Runnable
             onLoaded) {
-        loadImage(url, thumbnailUrl, imageView, onLoaded, null);
+        loadImage(url, thumbnailUrl, imageView, false, false, onLoaded, null);
     }
 
-    public static void loadImage(@NonNull Uri url, String thumbnailUrl, @NonNull final ImageView imageView, final Runnable onLoaded,
+    public static void loadImage(@NonNull Uri url, @Nullable String thumbnailUrl, @NonNull final ImageView imageView, final Runnable
+            onLoaded, final Runnable onError) {
+        loadImage(url, thumbnailUrl, imageView, false, false, onLoaded, onError);
+    }
+
+    public static void loadImage(@NonNull Uri url, @NonNull final ImageView imageView, boolean isCircleCornerRect) {
+        loadImage(url, null, imageView, isCircleCornerRect, true, null, null);
+    }
+
+    public static void loadImage(@NonNull Uri url, @NonNull final ImageView imageView
+            , boolean isCircleCornerRect, boolean isFile, final Runnable onLoaded,
                                  final Runnable onError) {
-        loadImage(url, thumbnailUrl, R.mipmap.icon_pic_loding, R.mipmap.ic_launcher, imageView, false, onLoaded, onError);
-    }
-
-    public static void loadCircleCornerImage(@NonNull String url, String thumbnailUrl, @NonNull ImageView imageView, int cornerX, int
-            cornerY, final Runnable onLoaded, final Runnable onError) {
-        if (circleCornerTransformation != null) {
-            circleCornerTransformation.setCornerSize(TypedValueUtil.fromDip(cornerX), TypedValueUtil.fromDip(cornerY));
-            loadImage(Uri.parse(url), thumbnailUrl, R.mipmap.icon_pic_loding, R.mipmap.ic_launcher, imageView, true, onLoaded,
-                    onError);
-        }
+        loadImage(url, null, imageView, isCircleCornerRect, isFile, onLoaded, onError);
 
     }
 
@@ -179,27 +178,32 @@ public class ImageLoader {
      * @param onLoaded
      * @param onError
      */
-    public static void loadImage(@NonNull Uri url, String thumbnailUrl, @DrawableRes int placeHolderRes, @DrawableRes int error, @NonNull
-    final ImageView imageView, boolean isRound, final Runnable onLoaded, final Runnable onError) {
+    public static void loadImage(@NonNull Uri url, String thumbnailUrl, @NonNull final ImageView imageView, boolean isCircleCornerRect, boolean isFile, final Runnable onLoaded,
+                                 final Runnable onError) {
         RequestCreator loader;
         if (!StringUtil.isNullOrWhiteSpace(thumbnailUrl)) {
             if (StringUtil.equals(thumbnailUrl, NO_USE_DEFAULT_IMG))
-                loader = createrLoader(url, null, -1);
+                loader = createrLoader(url, null);
             else {
                 ImageView placeholder = new ImageView(imageView.getContext());
                 imagePicasso
                         .load(thumbnailUrl)
                         .networkPolicy(NetworkPolicy.OFFLINE)
-                        .placeholder(placeHolderRes)
-                        .error(placeHolderRes)
+                        .placeholder(R.mipmap.icon_pic_loding)
+                        .error(R.mipmap.icon_pic_loding)
                         .into(placeholder);
-                loader = createrLoader(url, placeholder.getDrawable(), error);
+                loader = createrLoader(url, placeholder.getDrawable());
             }
-        } else {
-            loader = createrLoader(url, placeHolderRes, error);
+        } else
+            loader = createrLoader(url, R.mipmap.icon_pic_loding);
+        if (isCircleCornerRect) {
+            loader = createrLoader(url);
         }
-        if (isRound)
-            loader.transform(circleCornerTransformation);
+        if (isFile) {
+            loader = createrLoader(new File(url.toString())
+                    , R.mipmap.icon_pic_loding
+                    , R.mipmap.ic_launcher);
+        }
 
         loader.into(imageView, new Callback() {
             @Override
@@ -216,62 +220,64 @@ public class ImageLoader {
         });
     }
 
-    private static RequestCreator createrLoader(@NonNull Uri url, Drawable placeholder, @DrawableRes int error) {
+    private static RequestCreator createrLoader(File file, @DrawableRes int placeholder, @DrawableRes int error) {
+        return imagePicasso
+                .load(file)
+                .placeholder(placeholder)
+                .error(error)
+                .resize(700, 700)
+                .centerCrop();
+    }
+
+    private static RequestCreator createrLoader(@NonNull Uri url, Drawable placeholder) {
         if (placeholder != null) {
             return imagePicasso
                     .load(url)
                     .placeholder(placeholder)
-                    .error(error);
+                    .error(R.mipmap.ic_launcher);
         } else {
             return imagePicasso
                     .load(url);
         }
     }
 
-    private static RequestCreator createrLoader(@NonNull Uri url, @DrawableRes int placeholder, @DrawableRes int error) {
+    private static RequestCreator createrLoader(@NonNull Uri url, @DrawableRes int placeholder) {
         return imagePicasso
                 .load(url)
                 .placeholder(placeholder)
-                .error(error);
+                .error(R.mipmap.ic_launcher);
+    }
+
+    private static RequestCreator createrLoader(@NonNull Uri url) {
+        return imagePicasso
+                .load(url)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .transform(customRadiusTransformation);
     }
 
 
-    public static void loadImage(final Context context, @NonNull final String url, final LoadImageCallBack loadImageCallBack) {
-        ThreadExecutor.runInAsync(new Runnable() {
+    public static void getBitmap(@NonNull String url, final OnLoadedListener listener) {
+        imagePicasso.load(Uri.parse(url)).into(new Target() {
             @Override
-            public void run() {
-                try {
-                    final Bitmap bitmap = Picasso.with(context).load(url).get();
-                    if (bitmap != null)
-                        ThreadExecutor.runInMain(new Runnable() {
-                            @Override
-                            public void run() {
-                                loadImageCallBack.loadImageSuccess(bitmap);
-                            }
-                        });
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                listener.onLoadedListen(bitmap);
+            }
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    ThreadExecutor.runInAsync(new Runnable() {
-                        @Override
-                        public void run() {
-                            loadImageCallBack.loadImageFailed();
-                        }
-                    });
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
 
-                }
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
             }
         });
 
-
     }
 
-
-    public interface LoadImageCallBack {
-        void loadImageSuccess(Bitmap bitmap);
-
-        void loadImageFailed();
+    public interface OnLoadedListener {
+        void onLoadedListen(Bitmap bitmap);
     }
-
-
 }

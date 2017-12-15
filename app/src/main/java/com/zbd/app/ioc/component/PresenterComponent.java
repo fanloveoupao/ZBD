@@ -4,6 +4,7 @@ package com.zbd.app.ioc.component;
 import com.ysnet.zdb.presenter.BeVipPresenter;
 import com.ysnet.zdb.presenter.IndexHomePresenter;
 import com.ysnet.zdb.presenter.IndexPresenter;
+import com.ysnet.zdb.presenter.IndexShopCartPresenter;
 import com.ysnet.zdb.presenter.MainPresenter;
 import com.ysnet.zdb.presenter.MyMessagePresenter;
 import com.ysnet.zdb.presenter.ShareAppPresenter;
@@ -42,5 +43,7 @@ public interface PresenterComponent {
     void inject(ShareAppPresenter presenter);
 
     void inject(MyMessagePresenter presenter);
+
+    void inject(IndexShopCartPresenter presenter);
 
 }

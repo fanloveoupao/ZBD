@@ -85,6 +85,7 @@
     <dimen name="dp_77">77dp</dimen>
     <dimen name="dp_84">84dp</dimen>
     <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
     <dimen name="dp_140">140dp</dimen>
     <dimen name="dp_144">144dp</dimen>
     <dimen name="dp_160">160dp</dimen>
@@ -94,7 +95,7 @@
 
     <!-- 圆角大小-->
     <dimen name="radius_6px">3dp</dimen>
-    <dimen name="line_height">0.5dp</dimen>
+    <dimen name="line_height">1px</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
     <!--二维码扫描-->

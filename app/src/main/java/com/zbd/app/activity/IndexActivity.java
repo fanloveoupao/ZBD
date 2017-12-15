@@ -15,6 +15,7 @@ import com.ysnet.zdb.presenter.IndexPresenter;
 import com.zbd.app.BasePresenterActivity;
 import com.zbd.app.R;
 import com.zbd.app.fragment.IndexHomeFragment;
+import com.zbd.app.fragment.IndexMessageFragment;
 import com.zbd.app.fragment.IndexMineFragment;
 import com.zbd.app.fragment.IndexShopCartFragment;
 import com.zbd.app.fragment.IndexSortFragment;
@@ -27,18 +28,18 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
         implements IndexPresenter.IndexView {
 
 
-    //region fragment_project_show
     private static final String INTERT_FRAGMENT_TAG_KEY = "fragment_tag";
-
     public static final String TAG_MESSAGE_FRAGMENT = "tag_message_fragment";
     public static final String TAG_CIRCLE_FRAGMENT = "tag_circle_fragment";
-    //    public static final String TAG_PROJECT_FRAGMENT = "tag_project_fragment";
     public static final String TAG_MIME_FRAGMENT = "tag_mime_fragment";
     public static final String TAG_CONTACTS_FRAGMENT = "tag_contacts_ftagment";
+    public static final String TAG_MESSAGES_FRAGMENT = "tag_messages_ftagment";
     @BindView(R.id.rdobtn_circle)
     RadioButton rdoBtnCircle;
     @BindView(R.id.rdobtn_message)
     RadioButton rdoBtnMessage;
+    @BindView(R.id.rdobtn_msg)
+    RadioButton rdoBtnMsg;
     @BindView(R.id.rdobtn_peopleHub)
     RadioButton rdoBtnHub;
     @BindView(R.id.rdobtn_mine)
@@ -46,6 +47,7 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
 
     private IndexHomeFragment indexHomeFragment;
     private IndexSortFragment indexSortFragment;
+    private IndexMessageFragment indexMessageFragment;
     private IndexShopCartFragment indexShopCartFragment;
     private IndexMineFragment indexMineFragment;
 
@@ -71,6 +73,14 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
                     }
 
                     currentFragment = indexShopCartFragment;
+                    break;
+                case R.id.rdobtn_msg:
+                    if (indexMessageFragment == null) {
+                        indexMessageFragment = new IndexMessageFragment();
+                        mFt.add(R.id.v_framelayout, indexMessageFragment, TAG_MESSAGES_FRAGMENT);
+                    }
+
+                    currentFragment = indexMessageFragment;
                     break;
                 case R.id.rdobtn_peopleHub:
                     if (indexSortFragment == null) {
@@ -99,6 +109,7 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
         if (fragment == null) return;
         showFragment(ft, indexShopCartFragment, fragment);
         showFragment(ft, indexHomeFragment, fragment);
+        showFragment(ft, indexMessageFragment, fragment);
         showFragment(ft, indexSortFragment, fragment);
         showFragment(ft, indexMineFragment, fragment);
     }
@@ -122,6 +133,9 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
             case TAG_CONTACTS_FRAGMENT:
                 rdoBtnHub.setChecked(true);
                 break;
+            case TAG_MESSAGES_FRAGMENT:
+                rdoBtnMsg.setChecked(true);
+                break;
             case TAG_MIME_FRAGMENT:
                 rdoBtnMine.setChecked(true);
                 break;
@@ -139,10 +153,11 @@ public class IndexActivity extends BasePresenterActivity<IndexPresenter, IndexPr
         if (savedInstanceState != null) {
             indexHomeFragment = (IndexHomeFragment) getSupportFragmentManager().findFragmentByTag(TAG_CIRCLE_FRAGMENT);
             indexSortFragment = (IndexSortFragment) getSupportFragmentManager().findFragmentByTag(TAG_CONTACTS_FRAGMENT);
+            indexMessageFragment= (IndexMessageFragment) getSupportFragmentManager().findFragmentByTag(TAG_MESSAGES_FRAGMENT);
             indexShopCartFragment = (IndexShopCartFragment) getSupportFragmentManager().findFragmentByTag(TAG_MESSAGE_FRAGMENT);
             indexMineFragment = (IndexMineFragment) getSupportFragmentManager().findFragmentByTag(TAG_MIME_FRAGMENT);
         }
-        RadioButtonGroup radioGroup = new RadioButtonGroup(rdoBtnCircle, rdoBtnMessage, rdoBtnHub, rdoBtnMine);
+        RadioButtonGroup radioGroup = new RadioButtonGroup(rdoBtnCircle, rdoBtnMessage,rdoBtnMsg, rdoBtnHub, rdoBtnMine);
         radioGroup.setOnCheckedChangeListener(tagCheckedChangedListener);
         String tag = getIntent().getStringExtra(INTERT_FRAGMENT_TAG_KEY);
         showFragment(tag);

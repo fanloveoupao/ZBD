@@ -139,13 +139,50 @@
 
 
                     <RadioButton
+                        android:id="@+id/rdobtn_msg"
+                        style="@style/ToolbarIconStyle"
+                        android:drawableTop="@drawable/selector_toolbar_message_home"
+                        android:text="消息" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/rdobtn_msg"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/shape_red_point_bg"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/dp_1"
+                        android:paddingLeft="@dimen/dp_5"
+                        android:paddingRight="@dimen/dp_5"
+                        android:paddingTop="@dimen/dp_1"
+                        android:textColor="#ffffff"
+                        android:textSize="10dp"
+                        android:visibility="gone"
+                        tools:text="01" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+
+                    <RadioButton
                         android:id="@+id/rdobtn_message"
                         style="@style/ToolbarIconStyle"
                         android:drawableTop="@drawable/selector_toolbar_msg_home"
                         android:text="购物车" />
 
                     <TextView
-                        android:id="@+id/tv_msg_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignRight="@id/rdobtn_message"
@@ -159,6 +196,7 @@
                         android:paddingTop="@dimen/dp_1"
                         android:textColor="#ffffff"
                         android:textSize="10dp"
+                        android:visibility="gone"
                         tools:text="01" />
                 </RelativeLayout>
             </RelativeLayout>
